@@ -1,5 +1,7 @@
 import com.andersenlab.RegistrationPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,18 +10,21 @@ import org.openqa.selenium.WebDriver;
 public class RegistrationPageTest {
     WebDriver driver;
 
+    @Step("Start")
     @BeforeEach
     void setup() {
         driver = WebDriverManager.chromedriver().create();
         driver.get("https://www.way2automation.com/way2auto_jquery/registration.php#load_box/way2auto_jquery/registration.php");
     }
 
+    @Step("Stop")
     @AfterEach
     void teardown() {
         driver.quit();
     }
 
     @Test
+    @Description("Successful registration")
     public void successfulRegistration() {
         new RegistrationPage(driver)
                 .fillFirstname("Yauheni")
@@ -40,6 +45,7 @@ public class RegistrationPageTest {
     }
 
     @Test
+    @Description("Unsuccessful registration")
     public void unsuccessfulRegistration() {
         new RegistrationPage(driver)
                 .fillFirstname("Yauheni")
