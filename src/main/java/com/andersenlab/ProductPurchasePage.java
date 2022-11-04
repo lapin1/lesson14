@@ -1,5 +1,6 @@
 package com.andersenlab;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,28 +33,33 @@ public class ProductPurchasePage {
         this.driver = driver;
     }
 
+    @Step("Select product")
     public ProductPurchasePage selectProduct() {
         driver.findElement(womenButton).click();
         driver.findElement(imageOfProduct).click();
         return this;
     }
 
+    @Step("Select color")
     public ProductPurchasePage selectColor() {
         driver.findElement(color).click();
         return this;
     }
 
+    @Step("Select size")
     public ProductPurchasePage selectSize() {
         driver.findElement(size).click();
         return this;
     }
 
+    @Step("enter email for sign in")
     public ProductPurchasePage fillEmail(String emailData) {
         driver.findElement(email).click();
         driver.findElement(email).sendKeys(emailData);
         return this;
     }
 
+    @Step("enter password for sign in")
     public ProductPurchasePage fillPassword(String passwordData) {
         driver.findElement(password).click();
         driver.findElement(password).sendKeys(passwordData);
@@ -73,11 +79,13 @@ public class ProductPurchasePage {
         return this;
     }
 
+    @Step("Select payment option")
     public ProductPurchasePage selectPaymentOption() {
         driver.findElement(paymentOptionButton).click();
         return this;
     }
 
+    @Step("Confirm")
     public void clickConfirmationButton() {
         WebElement element = driver.findElement(confirmationButton);
         Assertions.assertTrue(isClicked(element));
