@@ -1,5 +1,6 @@
 package com.andersenlab;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -28,12 +29,14 @@ public class ChangeAddressPage {
         return this;
     }
 
+    @Step("Enter email")
     public ChangeAddressPage fillEmail() {
         driver.findElement(email).click();
         driver.findElement(email).sendKeys("lapinzh358@gmail.com");
         return this;
     }
 
+    @Step("Enter password")
     public ChangeAddressPage fillPassword() {
         driver.findElement(password).click();
         driver.findElement(password).sendKeys("superPass11");
@@ -45,6 +48,7 @@ public class ChangeAddressPage {
         return this;
     }
 
+    @Step("Update address information")
     public ChangeAddressPage updateAddress() {
         driver.findElement(addressField).click();
         driver.findElement(addressFieldUpdate).click();
@@ -54,6 +58,7 @@ public class ChangeAddressPage {
         return this;
     }
 
+    @Step("Update city information")
     public ChangeAddressPage updateCity() {
         driver.findElement(cityField).click();
         driver.findElement(city).click();
