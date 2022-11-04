@@ -1,5 +1,6 @@
 package com.andersenlab;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,6 +34,7 @@ public class RegistrationPage {
         this.driver = driver;
     }
 
+    @Step("Fill first name field")
     public RegistrationPage fillFirstname(String data) {
         driver.findElement(firstName).click();
         driver.findElement(firstName).sendKeys(data);
@@ -40,6 +42,7 @@ public class RegistrationPage {
 
     }
 
+    @Step("Fill last name field")
     public RegistrationPage fillLastName(String data) {
         driver.findElement(lastName).click();
         driver.findElement(lastName).sendKeys(data);
@@ -47,16 +50,19 @@ public class RegistrationPage {
     }
 
 
+    @Step("Select hobby")
     public RegistrationPage selectHobby() {
         driver.findElement(hobby).click();
         return this;
     }
 
+    @Step("Select status")
     public RegistrationPage selectStatus() {
         driver.findElement(status).click();
         return this;
     }
 
+    @Step("Select country")
     public RegistrationPage selectCountry() {
         driver.findElement(country).click();
         {
@@ -66,6 +72,7 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Select birthday day")
     public RegistrationPage selectDay() {
         driver.findElement(day).click();
         {
@@ -75,6 +82,7 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Select birthday month")
     public RegistrationPage selectMonth() {
         driver.findElement(month).click();
         {
@@ -84,6 +92,7 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Select birthday year")
     public RegistrationPage selectYear() {
         driver.findElement(year).click();
         {
@@ -93,6 +102,7 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Fill phone field")
     public RegistrationPage fillPhone(String data) {
         driver.findElement(phone).click();
         driver.findElement(phone).sendKeys(data);
@@ -100,6 +110,7 @@ public class RegistrationPage {
 
     }
 
+    @Step("Fill username field")
     public RegistrationPage fillUserName(String data) {
         driver.findElement(userName).click();
         driver.findElement(userName).sendKeys(data);
@@ -107,6 +118,7 @@ public class RegistrationPage {
 
     }
 
+    @Step("Fill email field")
     public RegistrationPage fillEmail(String data) {
         driver.findElement(email).click();
         driver.findElement(email).sendKeys(data);
@@ -121,18 +133,21 @@ public class RegistrationPage {
 
     }
 
+    @Step("Fill password field")
     public RegistrationPage fillPassword(String data) {
         driver.findElement(password1).click();
         driver.findElement(password1).sendKeys(data);
         return this;
     }
 
+    @Step("Confirm password")
     public RegistrationPage confirmPassword(String data) {
         driver.findElement(password2).click();
         driver.findElement(password2).sendKeys(data);
         return this;
     }
 
+    @Step("Finish registration")
     public void clickSubmit() {
         WebElement element = driver.findElement(submit);
         Assertions.assertTrue(isClicked(element));
